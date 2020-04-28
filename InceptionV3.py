@@ -110,7 +110,7 @@ print('Testing ...')
 # file validation picture
 files = []
 # r=root, d=directories, f = files
-for r, d, f in os.walk("Images/Oversample/Test"):
+for r, d, f in os.walk("Images/Test"):
     for file in f:
         if '.jpg' in file:
             files.append(os.path.join(r, file))
