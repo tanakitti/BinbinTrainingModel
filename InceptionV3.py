@@ -58,7 +58,7 @@ train_datagen = ImageDataGenerator(
 Aug = 'True'
 
 print('Create dataset ...')
-train_generator = train_datagen.flow_from_directory('Images/Oversample/Train',
+train_generator = train_datagen.flow_from_directory('Images/Train',
                                                  target_size=(299,299),
                                                  color_mode='rgb',
                                                  batch_size=Batch,
@@ -69,7 +69,7 @@ model.compile(optimizer='Adam',loss='categorical_crossentropy',metrics=['accurac
 step_size_train=train_generator.n//train_generator.batch_size
 
 test_datagen = ImageDataGenerator(preprocessing_function=preprocess_input)
-validation_generator = test_datagen.flow_from_directory("Images/Oversample/Test",
+validation_generator = test_datagen.flow_from_directory("Images/Test",
                                                         target_size=(299,299),
                                                         color_mode='rgb',
                                                         batch_size=Batch,

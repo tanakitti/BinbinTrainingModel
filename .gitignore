@@ -110,10 +110,8 @@ dmypy.json
 # End of https://www.gitignore.io/api/python
 InceptionV3Model/*
 ResNetModel/*
-Images/Oversample/Test/can/*
-Images/Oversample/Test/glass/*
-Images/Oversample/Test/plastic/*
-Images/Oversample/Train/can/*
-Images/Oversample/Train/glass/*
-Images/Oversample/Train/plastic/*
+Images/Test/*
+Images/Train/*
 
+!Images/Test/.gitkeep
+!Images/Train/.gitkeep
