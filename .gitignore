@@ -112,6 +112,7 @@ InceptionV3Model/*
 ResNetModel/*
 Images/Test/*
 Images/Train/*
+OldResult/*
 
 !Images/Test/.gitkeep
 !Images/Train/.gitkeep

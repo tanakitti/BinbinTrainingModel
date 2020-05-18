@@ -43,19 +43,19 @@ predictions = Dense(3, activation='softmax')(x)
 model = Model(inputs=base_model.input, outputs=predictions)
 
 train_datagen = ImageDataGenerator(
-  preprocessing_function=preprocess_input,)
-	# zoom_range=0.15,
-	# width_shift_range=0.2,
-	# height_shift_range=0.2,
-	# shear_range=0.15,
-	# brightness_range=(1, 1.3),
-	# horizontal_flip=True,
-	# vertical_flip=True,
-	# fill_mode='nearest')
+  preprocessing_function=preprocess_input,
+	zoom_range=0.2,
+	width_shift_range=0.3,
+	height_shift_range=0.3,
+	shear_range=0.2,
+	brightness_range=(0.5, 1.5),
+	horizontal_flip=True,
+	vertical_flip=True,
+	fill_mode='nearest')
 
 
 print('Create dataset ...')
-train_generator = train_datagen.flow_from_directory('Images/Oversample/Train',
+train_generator = train_datagen.flow_from_directory('Images/Train',
                                                  target_size=(224,224),
                                                  color_mode='rgb',
                                                  batch_size=Batch,
@@ -66,7 +66,7 @@ model.compile(optimizer='Adam',loss='categorical_crossentropy',metrics=['accurac
 step_size_train=train_generator.n//train_generator.batch_size
 
 test_datagen = ImageDataGenerator(preprocessing_function=preprocess_input)
-validation_generator = test_datagen.flow_from_directory("Images/Oversample/Test",
+validation_generator = test_datagen.flow_from_directory("Images/Test",
                                                         target_size=(224,224),
                                                         color_mode='rgb',
                                                         batch_size=Batch,
@@ -107,7 +107,7 @@ print('Testing ...')
 # file validation picture
 files = []
 # r=root, d=directories, f = files
-for r, d, f in os.walk("Images/Oversample/Test"):
+for r, d, f in os.walk("Images/Test"):
     for file in f:
         if '.jpg' in file:
             files.append(os.path.join(r, file))
